@@ -11,8 +11,12 @@ import {
   extendTheme,
   VStack,
   Box,
+  Button,
 } from "native-base";
 import NativeBaseIcon from "./NativeBaseIcon";
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Define the config
 const config = {
@@ -27,8 +31,8 @@ declare module "native-base" {
   interface ICustomTheme extends MyThemeType {}
 }
 
-
-export default function PageOne() {
+//i'll deal with this later, surely...
+export default function PageOne( {navigation}: any) {
     return (
 <NativeBaseProvider>
 <Center
@@ -64,6 +68,12 @@ export default function PageOne() {
       </Text>
     </Link>
     <ToggleDarkMode />
+
+    <Button
+        onPress={() => navigation.navigate('Profile')}
+      >
+        Go to Profile
+      </Button>
   </VStack>
 </Center>
 </NativeBaseProvider>

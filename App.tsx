@@ -20,7 +20,8 @@ import {
 } from "native-base";
 import NativeBaseIcon from "./components/NativeBaseIcon";
 
-import PageOne from './components/PageOne'
+import HomeScreen from './components/HomeScreen'
+import ProfileScreen from "./components/ProfileScreen";
 
 // Define the config
 const config = {
@@ -35,13 +36,19 @@ declare module "native-base" {
   interface ICustomTheme extends MyThemeType {}
 }
 
+const Stack = createNativeStackNavigator();
+
 export default function App() {
   return (
     <NavigationContainer>
-    <PageOne/>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen name = "Home" component = {HomeScreen}/>
+          <Stack.Screen name = "Profile" component = {ProfileScreen}/>
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
+
 
 // Color Switch Component
 function ToggleDarkMode() {
