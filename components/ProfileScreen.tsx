@@ -19,11 +19,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 export default function ProfileScreen( {navigation} : any) {
+
+  const color = useColorMode()
+
     return (
 <NativeBaseProvider>
 <Center
   _dark={{ bg: "blueGray.900" }}
-  _light={{ bg: "blueGray.50" }}
+  _light={{ bg: "blue.250" }}
   px={4}
   flex={1}
 >
@@ -48,11 +51,6 @@ export default function ProfileScreen( {navigation} : any) {
       <Text>and save to reload.</Text>
     </HStack>
 
-    <Button
-        onPress={() => navigation.navigate('Details')}
-      >
-        Go to Profile
-        </Button>
   </VStack>
 </Center>
 </NativeBaseProvider>

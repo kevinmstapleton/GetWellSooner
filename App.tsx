@@ -2,9 +2,6 @@ import React, { Component } from "react";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-
-
 import {
   Text,
   Link,
@@ -13,8 +10,10 @@ import {
   Heading,
   Switch,
   useColorMode,
+  ColorMode,
   NativeBaseProvider,
   extendTheme,
+  StorageManager,
   VStack,
   Box,
 } from "native-base";
@@ -36,6 +35,18 @@ declare module "native-base" {
   interface ICustomTheme extends MyThemeType {}
 }
 
+
+const colorModeManager: StorageManager = {
+  get: async () => {
+    let val = localStorage.getItem('@color-mode');
+    return val === 'dark' ? 'dark' : 'light';
+  },
+  set: async (value: ColorMode) => {
+    let strValue = value ? value.toString() : '';
+    localStorage.setItem('@color-mode', strValue);
+  },
+};
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -49,21 +60,3 @@ export default function App() {
   );
 }
 
-
-// Color Switch Component
-function ToggleDarkMode() {
-  const { colorMode, toggleColorMode } = useColorMode();
-  return (
-    <HStack space={2} alignItems="center">
-      <Text>Dark</Text>
-      <Switch
-        isChecked={colorMode === "light"}
-        onToggle={toggleColorMode}
-        aria-label={
-          colorMode === "light" ? "switch to dark mode" : "switch to light mode"
-        }
-      />
-      <Text>Light</Text>
-    </HStack>
-  );
-}
