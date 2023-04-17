@@ -43,7 +43,7 @@ const config = {
 
 //i'll deal with this later, surely...
 export default function PageOne( {navigation}: any, colorManager: StorageManager) {
-  const [selected, setSelected] = React.useState(0);
+  const [selected, setSelected] = React.useState(1);
   
     return (
 <NativeBaseProvider>
@@ -58,13 +58,107 @@ export default function PageOne( {navigation}: any, colorManager: StorageManager
   <HStack     _dark={{ bg: "blueGray.900" }}
     _light={{ bg: "blueGray.50" }} alignItems = 'center' marginRight = {4} justifyContent='right' p = {5} m = {2} space-between = {4}>
 
-  <Text fontSize="4xl">Veerasamy, J</Text>
+  <Text _light = { {color: "blueGray.900"} } _dark = { {color: "white"} } fontSize="2xl">Veerasamy, J</Text>
 
-    <Avatar p = {1} bg="primary.200" alignSelf="right" size="xl" source={{
+    <Avatar p = {1} bg="primary.200" alignSelf="right" size="md" source={{
       uri: "https://i0.wp.com/cs.utdallas.edu/wp-content/uploads/2022/05/Jey-Veerasamy-May-13-2022-3-scaled.jpg?fit=750%2C750&ssl=1"
     }}/>
-
   </HStack>
+
+  <VStack   _dark={{ bg: "blueGray.900" }}
+    _light={{ bg: "blueGray.50" }} alignItems = 'left' marginRight = {4} justifyContent='left' p = {5} m = {2} space-between = {4}>
+
+  <Text alignSelf = 'center' fontSize="4xl">Symptoms</Text>
+
+    <ScrollView w="100%" h="80" horizontal = {true} paddingRight = {15} mx = "auto">
+
+      <Center mt="3" mb="8">
+        <Card rounded = {15}    
+    _dark={{ bg: "red.100"  }} _light={{ bg: "primary.400" }} width = "90%" height={20} alignContent = 'center' alignItems = 'center'>
+        <Heading fontSize="xl">17</Heading>
+        <Text  _dark={{
+          color: "coolgray.800"
+          }}>
+            Mon
+          </Text>
+        </Card>
+      </Center>
+
+      <Center mt="3" mb="8">
+        <Card rounded = {15}    
+    _dark={{ bg: "red.100"  }} _light={{ bg: "primary.400" }} width = "90%" height={20} alignContent = 'center' alignItems = 'center'>
+        <Heading fontSize="xl">17</Heading>
+        <Text  _dark={{
+          color: "coolgray.800"
+          }}>
+            Mon
+          </Text>
+        </Card>
+      </Center>
+      
+      <Center mt="3" mb="8">
+        <Card rounded = {15}    
+    _dark={{ bg: "red.100"  }} _light={{ bg: "primary.400" }} width = "90%" height={20} alignContent = 'center' alignItems = 'center'>
+        <Heading fontSize="xl">17</Heading>
+        <Text  _dark={{
+          color: "coolgray.800"
+          }}>
+            Mon
+          </Text>
+        </Card>
+      </Center>
+
+
+      <Center mt="3" mb="8">
+        <Card rounded = {15}    
+    _dark={{ bg: "red.100"  }} _light={{ bg: "primary.400" }} width = "90%" height={20} alignContent = 'center' alignItems = 'center'>
+        <Heading fontSize="xl">17</Heading>
+        <Text  _dark={{
+          color: "coolgray.800"
+          }}>
+            Mon
+          </Text>
+        </Card>
+      </Center>
+
+      <Center mt="3" mb="8">
+        <Card rounded = {15}    
+    _dark={{ bg: "red.100"  }} _light={{ bg: "primary.400" }} width = "90%" height={20} alignContent = 'center' alignItems = 'center'>
+        <Heading fontSize="xl">17</Heading>
+        <Text  _dark={{
+          color: "coolgray.800"
+          }}>
+            Mon
+          </Text>
+        </Card>
+      </Center>
+
+      <Center mt="3" mb="8">
+        <Card rounded = {15}    
+    _dark={{ bg: "red.100"  }} _light={{ bg: "primary.400" }} width = "90%" height={20} alignContent = 'center' alignItems = 'center'>
+        <Heading fontSize="xl">17</Heading>
+        <Text  _dark={{
+          color: "coolgray.800"
+          }}>
+            Mon
+          </Text>
+        </Card>
+      </Center>
+
+      <Center mt="3" mb="8">
+        <Card rounded = {15}    
+    _dark={{ bg: "red.100"  }} _light={{ bg: "primary.400" }} width = "90%" height={20} alignContent = 'center' alignItems = 'center'>
+        <Heading fontSize="xl">17</Heading>
+        <Text  _dark={{
+          color: "coolgray.800"
+          }}>
+            Mon
+          </Text>
+        </Card>
+      </Center>
+    </ScrollView>
+
+  </VStack>
 
 <Center
   _dark={{ bg: "blueGray.900" }}
@@ -95,55 +189,6 @@ export default function PageOne( {navigation}: any, colorManager: StorageManager
     </Stack>
     </Box>
 
-    <View minHeight="50%" alignItems="center">
-      
-      <Heading>
-        Upcoming Appointments
-      </Heading>
-
-      <ScrollView w="100%" h="80" horizontal = {true}>
-      <Center mt="3" mb="4">
-        <Heading fontSize="xl">Dr J.</Heading>
-        <Card     
-    _dark={{ bg: "red.100"  }} _light={{ bg: "primary.400" }} width = "90%" height={20} alignContent = 'center' alignItems = 'center'>
-      <Text  _dark={{
-      color: "coolgray.800"
-    }}>
-        Meeting to discuss JavaScript
-      </Text>
-  </Card>
-      </Center>
-      <VStack flex="1">
-      </VStack>
-      <Center mt="8" mb="4">
-        <Heading fontSize="xl">Dr. S</Heading>
-        <Card minWidth = {["300", "200"]}     
-    _dark={{ bg: "red.100"  }} _light={{ bg: "primary.300" }} width = "90%" height={20} alignContent = 'center' alignItems = 'center'>
-      <Text  _dark={{
-      color: "coolgray.800"
-    }}>
-        Therapy Session for JavaScript Trust Issues
-      </Text>
-  </Card>
-      </Center>
-      <VStack flex="1">
-      </VStack>
-      <Center mt="12" mb="4">
-        <Heading fontSize="xl"> Dr. Ock</Heading>
-        <Card     
-    _dark={{ bg: "red.100"  }} _light={{ bg: "primary.200" }} width = "90%" height={20} alignContent = 'center' alignItems = 'center'>
-      <Text  _dark={{
-      color: "coolgray.800"
-    }}>
-        Might want to stay away from this one...
-      </Text>
-  </Card>
-      </Center>
-      <VStack flex="1">
-      </VStack>
-    </ScrollView>
-    </View>
-
 
 
   </VStack>
@@ -157,7 +202,7 @@ export default function PageOne( {navigation}: any, colorManager: StorageManager
 
         <HStack safeAreaLeft = {10} _dark={{ bg: "red.200"}} _light ={{ bg: "indigo.600"  }} alignItems="center" safeAreaBottom shadow={6}>
           <ToggleDarkMode/>
-          <Pressable cursor="pointer" opacity={selected === 0 ? 1 : 0.5} py="3" flex={1} onPress={() => setSelected(0)}>
+          <Pressable cursor="pointer" opacity={selected === 0 ? 1 : 0.5} py="3" flex={1} onPress={() => navigation.navigate('Home')}>
             <Center>
               <Icon _light = { {color: "white"} } _dark = { {color: "indigo.900"} } mb="1" as={<MaterialCommunityIcons name={selected === 0 ? 'home' : 'home-outline'} />} color="white" size="sm" />
               <Text _light = { {color: "white"} } _dark = { {color: "indigo.800"} } fontSize="12">
@@ -165,7 +210,7 @@ export default function PageOne( {navigation}: any, colorManager: StorageManager
               </Text>
             </Center>
           </Pressable>
-          <Pressable cursor="pointer" opacity={selected === 1 ? 1 : 0.5} py="2" flex={1} onPress={() => navigation.navigate('Symptoms')}>
+          <Pressable cursor="pointer" opacity={selected === 1 ? 1 : 0.5} py="2" flex={1} onPress={() => setSelected(1)}>
             <Center>
               <Icon _light = { {color: "white"} } _dark = { {color: "indigo.800"} } mb="1" as={<MaterialIcons name="search" />} color="white" size="sm" />
               <Text _light = { {color: "white"} } _dark = { {color: "indigo.800"} } fontSize="12">

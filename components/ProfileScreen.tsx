@@ -35,7 +35,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 export default function ProfileScreen( {navigation} : any) {
 
-  const [selected, setSelected] = React.useState(1);
+  const [selected, setSelected] = React.useState(3);
   
   return (
 <NativeBaseProvider>
@@ -116,11 +116,11 @@ height = {1}
             </Text>
           </Center>
         </Pressable>
-        <Pressable cursor="pointer" opacity={selected === 1 ? 1 : 0.5} py="2" flex={1} onPress={() => setSelected(1)}>
+        <Pressable cursor="pointer" opacity={selected === 1 ? 1 : 0.5} py="2" flex={1} onPress={() => navigation.navigate('Symptoms')}>
           <Center>
             <Icon _light = { {color: "white"} } _dark = { {color: "indigo.800"} } mb="1" as={<MaterialIcons name="search" />} color="white" size="sm" />
             <Text _light = { {color: "white"} } _dark = { {color: "indigo.800"} } fontSize="12">
-              Search
+            Symptoms
             </Text>
           </Center>
         </Pressable>

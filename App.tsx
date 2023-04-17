@@ -21,6 +21,7 @@ import NativeBaseIcon from "./components/NativeBaseIcon";
 
 import HomeScreen from './components/HomeScreen'
 import ProfileScreen from "./components/ProfileScreen";
+import SymptomsScreen from "./components/SymptomsScreen";
 
 // Define the config
 const config = {
@@ -36,16 +37,6 @@ declare module "native-base" {
 }
 
 
-const colorModeManager: StorageManager = {
-  get: async () => {
-    let val = localStorage.getItem('@color-mode');
-    return val === 'dark' ? 'dark' : 'light';
-  },
-  set: async (value: ColorMode) => {
-    let strValue = value ? value.toString() : '';
-    localStorage.setItem('@color-mode', strValue);
-  },
-};
 
 const Stack = createNativeStackNavigator();
 
@@ -55,6 +46,7 @@ export default function App() {
         <Stack.Navigator initialRouteName="Home">
           <Stack.Screen name = "Home" component = {HomeScreen}/>
           <Stack.Screen name = "Profile" component = {ProfileScreen}/>
+          <Stack.Screen name = "Symptoms" component = {SymptomsScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
