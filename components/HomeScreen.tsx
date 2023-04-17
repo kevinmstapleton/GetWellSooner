@@ -60,7 +60,7 @@ export default function PageOne( {navigation}: any, colorManager: StorageManager
 
   <Text fontSize="4xl">Veerasamy, J</Text>
 
-    <Avatar bg="green.500" alignSelf="right" size="xl" source={{
+    <Avatar p = {1} bg="primary.200" alignSelf="right" size="xl" source={{
       uri: "https://i0.wp.com/cs.utdallas.edu/wp-content/uploads/2022/05/Jey-Veerasamy-May-13-2022-3-scaled.jpg?fit=750%2C750&ssl=1"
     }}/>
 
@@ -78,7 +78,7 @@ export default function PageOne( {navigation}: any, colorManager: StorageManager
   <VStack space="30%" alignItems="center">
 
   <Card     
-    _dark={{ bg: "red.100"  }} _light={{ bg: "primary.50" }} width = "90%" height={20} alignContent = 'center' alignItems = 'center'>
+    _dark={{ bg: "red.100"  }} _light={{ bg: "blueGray.200" }} width = "90%" height={20} alignContent = 'center' alignItems = 'center'>
       <Text  _dark={{
       color: "coolgray.800"
     }} fontSize = {[10, 20]}>
@@ -105,11 +105,11 @@ export default function PageOne( {navigation}: any, colorManager: StorageManager
       <Center mt="3" mb="4">
         <Heading fontSize="xl">Dr J.</Heading>
         <Card     
-    _dark={{ bg: "red.100"  }} _light={{ bg: "primary.600" }} width = "90%" height={20} alignContent = 'center' alignItems = 'center'>
+    _dark={{ bg: "red.100"  }} _light={{ bg: "primary.400" }} width = "90%" height={20} alignContent = 'center' alignItems = 'center'>
       <Text  _dark={{
       color: "coolgray.800"
     }}>
-        Schedule an appointment with your doctor!
+        Meeting to discuss JavaScript
       </Text>
   </Card>
       </Center>
@@ -118,24 +118,24 @@ export default function PageOne( {navigation}: any, colorManager: StorageManager
       <Center mt="8" mb="4">
         <Heading fontSize="xl">Dr. S</Heading>
         <Card minWidth = {["300", "200"]}     
-    _dark={{ bg: "red.100"  }} _light={{ bg: "primary.400" }} width = "90%" height={20} alignContent = 'center' alignItems = 'center'>
+    _dark={{ bg: "red.100"  }} _light={{ bg: "primary.300" }} width = "90%" height={20} alignContent = 'center' alignItems = 'center'>
       <Text  _dark={{
       color: "coolgray.800"
     }}>
-        Dr. J
+        Therapy Session for JavaScript Trust Issues
       </Text>
   </Card>
       </Center>
       <VStack flex="1">
       </VStack>
-      <Center mt="8" mb="4">
+      <Center mt="12" mb="4">
         <Heading fontSize="xl"> Dr. Ock</Heading>
         <Card     
     _dark={{ bg: "red.100"  }} _light={{ bg: "primary.200" }} width = "90%" height={20} alignContent = 'center' alignItems = 'center'>
       <Text  _dark={{
       color: "coolgray.800"
     }}>
-        Schedule an appointment with your doctor!
+        Might want to stay away from this one...
       </Text>
   </Card>
       </Center>
