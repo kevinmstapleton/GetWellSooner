@@ -40,15 +40,14 @@ export default function ProfileScreen( {navigation} : any) {
   return (
 <NativeBaseProvider>
 <VStack
-  _dark={{ bg: "blueGray.900" }}
-  _light={{ bg: "primary.50" }}
-  px={8}
-  p = {[8, 16]}
-  flex={1}
-  height = "100%">
+    _dark={{ bg: "blueGray.900" }}
+    _light={{ bg: "blueGray.50" }}
+
+    flex={1}
+    height = "100%">
 
 <HStack     _dark={{ bg: "blueGray.900" }}
-  _light={{ bg: "primary.50" }} alignItems = 'center' marginRight = {4} justifyContent='center' p = {[4, 8]} m = {[4, 8]} space-between = {4}>
+  _light={{ bg: "primary.50" }} alignItems = 'center' marginRight = {4} justifyContent='center' p = {[4, 8]} m = {[4, 8]} space-between = {8}>
 
 <Text fontSize="4xl">Veerasamy, J</Text>
 
@@ -59,16 +58,17 @@ export default function ProfileScreen( {navigation} : any) {
 
 </HStack>
 
-<Center
+<VStack
   _dark={{ bg: "blueGray.900" }}
   _light={{ bg: "primary.50" }}
 px={4}
 flex={1}
 height = {1}
+alignItems = "Center"
 >
 
 
-<VStack space="30%" alignItems="center" >
+<VStack space="30%" alignItems="center">
 
 <Pressable    
   minW = {[200, 300]} p = {4} shadow = {1} _hover = { {bg: "red.200"} } _dark={{ bg: "red.100"  }} _light={{ bg: "primary.200" }}  height={20} alignContent = 'center' alignItems = 'center' rounded = {8}>
@@ -100,11 +100,8 @@ height = {1}
 </VStack>
 
 
-</Center>
-
 </VStack>
-   
-<Box width= "100%" bg="white" alignSelf="flex-end">
+<Box width= "100%" bg="white">
 
       <HStack safeAreaLeft = {10} _dark={{ bg: "red.200"}} _light ={{ bg: "indigo.600"  }} alignItems="center" safeAreaBottom shadow={6}>
         <ToggleDarkMode/>
@@ -142,6 +139,10 @@ height = {1}
         </Pressable>
       </HStack>
     </Box>  
+
+</VStack>
+   
+
 
 </NativeBaseProvider>
 

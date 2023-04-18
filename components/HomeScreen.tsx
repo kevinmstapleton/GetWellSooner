@@ -50,8 +50,7 @@ export default function PageOne( {navigation}: any, colorManager: StorageManager
   <VStack
     _dark={{ bg: "blueGray.900" }}
     _light={{ bg: "blueGray.50" }}
-    px={4}
-    p = {5}
+
     flex={1}
     height = "100%">
   
@@ -66,19 +65,20 @@ export default function PageOne( {navigation}: any, colorManager: StorageManager
 
   </HStack>
 
-<Center
-  _dark={{ bg: "blueGray.900" }}
-  _light={{ bg: "blueGray.50" }}
-  px={4}
-  flex={1}
-  height = {1}
->
+  <VStack
+    _dark={{ bg: "blueGray.900" }}
+    _light={{ bg: "blueGray.50" }}
+    flex={1}
+    height = {1}
+    safeAreaTop = {10}
+    space = {6}
+    justifyContent= ' center '
+    alignItems = 'center'
+  >
  
 
-  <VStack space="30%" alignItems="center">
-
   <Card     
-    _dark={{ bg: "red.100"  }} _light={{ bg: "blueGray.200" }} width = "90%" height={20} alignContent = 'center' alignItems = 'center'>
+    _dark={{ bg: "red.100"  }} _light={{ bg: "blueGray.200" }} width = "70%" height={20} alignContent = 'center' alignItems = 'center'>
       <Text  _dark={{
       color: "coolgray.800"
     }} fontSize = {[10, 20]}>
@@ -88,7 +88,7 @@ export default function PageOne( {navigation}: any, colorManager: StorageManager
 
 
   <Box alignItems="center">
-    <Stack space={16} w="100%" alignItems="center">
+    <Stack w="100%" alignItems="center" alignSelf = "center">
       <Input w={{
       base: "100%",
     }} InputLeftElement={<SearchIcon/>} size={5} ml="2" color="muted.400" placeholder="Search all things medical" />
@@ -143,54 +143,49 @@ export default function PageOne( {navigation}: any, colorManager: StorageManager
       </VStack>
     </ScrollView>
     </View>
+<Box width= "100%" bg="white">
 
-
-
-  </VStack>
+<HStack safeAreaLeft = {10} _dark={{ bg: "red.200"}} _light ={{ bg: "indigo.600"  }} alignItems="center" safeAreaBottom = {1} shadow={6}>
+  <ToggleDarkMode/>
+  <Pressable cursor="pointer" opacity={selected === 0 ? 1 : 0.5} py="3" flex={1} onPress={() => setSelected(0)}>
+    <Center>
+      <Icon _light = { {color: "white"} } _dark = { {color: "indigo.900"} } mb="1" as={<MaterialCommunityIcons name={selected === 0 ? 'home' : 'home-outline'} />} color="white" size="sm" />
+      <Text _light = { {color: "white"} } _dark = { {color: "indigo.800"} } fontSize="12">
+        Home
+      </Text>
+    </Center>
+  </Pressable>
+  <Pressable cursor="pointer" opacity={selected === 1 ? 1 : 0.5} py="2" flex={1} onPress={() => navigation.navigate('Symptoms')}>
+    <Center>
+      <Icon _light = { {color: "white"} } _dark = { {color: "indigo.800"} } mb="1" as={<MaterialIcons name="search" />} color="white" size="sm" />
+      <Text _light = { {color: "white"} } _dark = { {color: "indigo.800"} } fontSize="12">
+        Symptoms
+      </Text>
+    </Center>
+  </Pressable>
+  <Pressable cursor="pointer" opacity={selected === 2 ? 1 : 0.6} py="2" flex={1} onPress={() => setSelected(2)}>
+    <Center>
+      <Icon _light = { {color: "white"} } _dark = { {color: "indigo.800"} } mb="1" as={<MaterialCommunityIcons name={selected === 2 ? 'cart' : 'cart-outline'} />} color="white" size="sm" />
+      <Text _light = { {color: "white"} } _dark = { {color: "indigo.800"} } fontSize="12">
+        Cart
+      </Text>
+    </Center>
+  </Pressable>
+  <Pressable cursor="pointer" opacity={selected === 3 ? 1 : 0.5} py="2" flex={1} onPress={() => navigation.navigate('Profile')}>
+    <Center >
+      <Icon _light = { {color: "white"} } _dark = { {color: "indigo.800"} } mb="1" as={<MaterialCommunityIcons name={selected === 3 ? 'account' : 'account-outline'} />} color="white" size="sm" />
+      <Text _light = { {color: "white"} } _dark = { {color: "indigo.800"} } fontSize="12">
+        Profile
+      </Text>
+    </Center>
+  </Pressable>
+</HStack>
+</Box>  
   
-  
-</Center>
-
+</VStack>
 </VStack>
      
-<Box width= "100%" bg="white" alignSelf="flex-end">
 
-        <HStack safeAreaLeft = {10} _dark={{ bg: "red.200"}} _light ={{ bg: "indigo.600"  }} alignItems="center" safeAreaBottom shadow={6}>
-          <ToggleDarkMode/>
-          <Pressable cursor="pointer" opacity={selected === 0 ? 1 : 0.5} py="3" flex={1} onPress={() => setSelected(0)}>
-            <Center>
-              <Icon _light = { {color: "white"} } _dark = { {color: "indigo.900"} } mb="1" as={<MaterialCommunityIcons name={selected === 0 ? 'home' : 'home-outline'} />} color="white" size="sm" />
-              <Text _light = { {color: "white"} } _dark = { {color: "indigo.800"} } fontSize="12">
-                Home
-              </Text>
-            </Center>
-          </Pressable>
-          <Pressable cursor="pointer" opacity={selected === 1 ? 1 : 0.5} py="2" flex={1} onPress={() => navigation.navigate('Symptoms')}>
-            <Center>
-              <Icon _light = { {color: "white"} } _dark = { {color: "indigo.800"} } mb="1" as={<MaterialIcons name="search" />} color="white" size="sm" />
-              <Text _light = { {color: "white"} } _dark = { {color: "indigo.800"} } fontSize="12">
-                Symptoms
-              </Text>
-            </Center>
-          </Pressable>
-          <Pressable cursor="pointer" opacity={selected === 2 ? 1 : 0.6} py="2" flex={1} onPress={() => setSelected(2)}>
-            <Center>
-              <Icon _light = { {color: "white"} } _dark = { {color: "indigo.800"} } mb="1" as={<MaterialCommunityIcons name={selected === 2 ? 'cart' : 'cart-outline'} />} color="white" size="sm" />
-              <Text _light = { {color: "white"} } _dark = { {color: "indigo.800"} } fontSize="12">
-                Cart
-              </Text>
-            </Center>
-          </Pressable>
-          <Pressable cursor="pointer" opacity={selected === 3 ? 1 : 0.5} py="2" flex={1} onPress={() => navigation.navigate('Profile')}>
-            <Center >
-              <Icon _light = { {color: "white"} } _dark = { {color: "indigo.800"} } mb="1" as={<MaterialCommunityIcons name={selected === 3 ? 'account' : 'account-outline'} />} color="white" size="sm" />
-              <Text _light = { {color: "white"} } _dark = { {color: "indigo.800"} } fontSize="12">
-                Profile
-              </Text>
-            </Center>
-          </Pressable>
-        </HStack>
-      </Box>  
 
 </NativeBaseProvider>
 
