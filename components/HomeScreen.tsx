@@ -52,10 +52,12 @@ export default function PageOne( {navigation}: any, colorManager: StorageManager
     _light={{ bg: "blueGray.50" }}
 
     flex={1}
-    height = "100%">
+    height = "100%"
+    width = "100%"
+    >
   
   <HStack     _dark={{ bg: "blueGray.900" }}
-    _light={{ bg: "blueGray.50" }} alignItems = 'center' marginRight = {4} justifyContent='right' p = {5} m = {2} space-between = {4}>
+    _light={{ bg: "blueGray.50" }} alignItems = 'center' marginRight = {4} justifyContent='right' p = {5} m = {2} space-between = {4} safeAreaBottom = {2}>
 
   <Text fontSize="4xl">Veerasamy, J</Text>
 
@@ -88,7 +90,7 @@ export default function PageOne( {navigation}: any, colorManager: StorageManager
 
 
   <Box alignItems="center">
-    <Stack w="100%" alignItems="center" alignSelf = "center">
+    <Stack w="100%" alignItems="center">
       <Input w={{
       base: "100%",
     }} InputLeftElement={<SearchIcon/>} size={5} ml="2" color="muted.400" placeholder="Search all things medical" />
@@ -143,6 +145,9 @@ export default function PageOne( {navigation}: any, colorManager: StorageManager
       </VStack>
     </ScrollView>
     </View>
+
+  
+</VStack>
 <Box width= "100%" bg="white">
 
 <HStack safeAreaLeft = {10} _dark={{ bg: "red.200"}} _light ={{ bg: "indigo.600"  }} alignItems="center" safeAreaBottom = {1} shadow={6}>
@@ -181,8 +186,6 @@ export default function PageOne( {navigation}: any, colorManager: StorageManager
   </Pressable>
 </HStack>
 </Box>  
-  
-</VStack>
 </VStack>
      
 
