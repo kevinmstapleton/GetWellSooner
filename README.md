@@ -1,9 +1,17 @@
-# NativeBase TypeScript Expo Template
-
-The official NativeBase TypeScript template for [Expo](https://docs.expo.io/)
+# NativeBase TypeScript Project
 
 ## Usage
 
-```sh
-expo init my-app --template @native-base/expo-template-typescript
-```
+In order to run the project, 
+
+1. Download Yarn package manager
+-- npm i -g yarn --
+
+2. Install node modules
+-- yarn install --
+
+3. instantiate webpage
+-- yarn web --
+
+If this does not work, you may need to manually install Expo-CLI in order to display
+-- npm install -g expo-cli
