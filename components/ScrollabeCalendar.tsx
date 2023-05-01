@@ -49,17 +49,26 @@ export default function ScrollableCalendar() {
   var Cards:[any] = [React.Fragment];
   for (let i = 1; i < 31; i++) {
     Cards.push(
-    <React.Fragment key={i}>
-            <Center mt="3" mb="8">
+    <React.Fragment key={i} >
+            <Center mt="3" mb="8" px = {1}>
         <Pressable rounded = {5} _hover={{
     bg: 'secondary.400',
   }}    
     _dark={{ bg: "red.100"  }} _light={{ bg: "primary.400" }} width = {[50, 100]} height={20} alignContent = 'center' alignItems = 'center'
     >
-        <Heading fontSize="xl">{i}</Heading>
+        <Heading _dark={{
+          color: "coolgray.800"
+          }} 
+          _light={{
+            color: "primary.800"
+            }}
+            fontSize="xl">{i}</Heading>
         <Text  _dark={{
           color: "coolgray.800"
-          }}>
+          }}
+          _light={{
+            color: "primary.800"
+            }}>
               {dates.at(i % 7)}
 
           </Text>
@@ -69,15 +78,8 @@ export default function ScrollableCalendar() {
     )
   }
     return (
-<NativeBaseProvider>
-<View alignItems='center'>
-    <ScrollView flex={1} w="60%" h="80%" padding = {10} horizontal = {true} mx = {4}>
+    <ScrollView flex={1} w="90%" h="80%" px = {10} justify-content='space-between' horizontal = {true} mx = {4}>
         {Cards}
     </ScrollView>
-</View>
-
-</NativeBaseProvider>
-
-
     )
 }
