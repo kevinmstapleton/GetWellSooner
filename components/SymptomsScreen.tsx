@@ -32,6 +32,7 @@ import NativeBaseIcon from "./NativeBaseIcon";
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ScrollableCalendar from "./ScrollabeCalendar";
 
 // Define the config
 const config = {
@@ -44,7 +45,6 @@ const config = {
 //i'll deal with this later, surely...
 export default function PageOne( {navigation}: any, colorManager: StorageManager) {
   const [selected, setSelected] = React.useState(1);
-  
     return (
 <NativeBaseProvider>
   <VStack
@@ -66,97 +66,11 @@ export default function PageOne( {navigation}: any, colorManager: StorageManager
   </HStack>
 
   <VStack   _dark={{ bg: "blueGray.900" }}
-    _light={{ bg: "blueGray.50" }} alignItems = 'left' marginRight = {4} justifyContent='left' p = {5} m = {2} space-between = {4}>
+    _light={{ bg: "blueGray.50" }} alignItems = 'center' marginRight = {4} justifyContent='left' p = {5} m = {2} space-between = {4}>
 
   <Text alignSelf = 'center' fontSize="4xl">Symptoms</Text>
 
-    <ScrollView w="100%" h="80" horizontal = {true} paddingRight = {15} mx = "auto">
-
-      <Center mt="3" mb="8">
-        <Card rounded = {15}    
-    _dark={{ bg: "red.100"  }} _light={{ bg: "primary.400" }} width = "90%" height={20} alignContent = 'center' alignItems = 'center'>
-        <Heading fontSize="xl">17</Heading>
-        <Text  _dark={{
-          color: "coolgray.800"
-          }}>
-            Mon
-          </Text>
-        </Card>
-      </Center>
-
-      <Center mt="3" mb="8">
-        <Card rounded = {15}    
-    _dark={{ bg: "red.100"  }} _light={{ bg: "primary.400" }} width = "90%" height={20} alignContent = 'center' alignItems = 'center'>
-        <Heading fontSize="xl">17</Heading>
-        <Text  _dark={{
-          color: "coolgray.800"
-          }}>
-            Mon
-          </Text>
-        </Card>
-      </Center>
-      
-      <Center mt="3" mb="8">
-        <Card rounded = {15}    
-    _dark={{ bg: "red.100"  }} _light={{ bg: "primary.400" }} width = "90%" height={20} alignContent = 'center' alignItems = 'center'>
-        <Heading fontSize="xl">17</Heading>
-        <Text  _dark={{
-          color: "coolgray.800"
-          }}>
-            Mon
-          </Text>
-        </Card>
-      </Center>
-
-
-      <Center mt="3" mb="8">
-        <Card rounded = {15}    
-    _dark={{ bg: "red.100"  }} _light={{ bg: "primary.400" }} width = "90%" height={20} alignContent = 'center' alignItems = 'center'>
-        <Heading fontSize="xl">17</Heading>
-        <Text  _dark={{
-          color: "coolgray.800"
-          }}>
-            Mon
-          </Text>
-        </Card>
-      </Center>
-
-      <Center mt="3" mb="8">
-        <Card rounded = {15}    
-    _dark={{ bg: "red.100"  }} _light={{ bg: "primary.400" }} width = "90%" height={20} alignContent = 'center' alignItems = 'center'>
-        <Heading fontSize="xl">17</Heading>
-        <Text  _dark={{
-          color: "coolgray.800"
-          }}>
-            Mon
-          </Text>
-        </Card>
-      </Center>
-
-      <Center mt="3" mb="8">
-        <Card rounded = {15}    
-    _dark={{ bg: "red.100"  }} _light={{ bg: "primary.400" }} width = "90%" height={20} alignContent = 'center' alignItems = 'center'>
-        <Heading fontSize="xl">17</Heading>
-        <Text  _dark={{
-          color: "coolgray.800"
-          }}>
-            Mon
-          </Text>
-        </Card>
-      </Center>
-
-      <Center mt="3" mb="8">
-        <Card rounded = {15}    
-    _dark={{ bg: "red.100"  }} _light={{ bg: "primary.400" }} width = "90%" height={20} alignContent = 'center' alignItems = 'center'>
-        <Heading fontSize="xl">17</Heading>
-        <Text  _dark={{
-          color: "coolgray.800"
-          }}>
-            Mon
-          </Text>
-        </Card>
-      </Center>
-    </ScrollView>
+    <ScrollableCalendar/>
 
   </VStack>
 
@@ -242,7 +156,6 @@ export default function PageOne( {navigation}: any, colorManager: StorageManager
 
     )
 }
-
 // Color Switch Component
 function ToggleDarkMode() {
   const { colorMode, toggleColorMode } = useColorMode();
