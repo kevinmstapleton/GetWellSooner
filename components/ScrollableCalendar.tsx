@@ -38,12 +38,14 @@ const config = {
   useSystemColorMode: true,
   initialColorMode: "dark",
 };
-const myContext = React.createContext(0)
 let data: string[][]
 
 //i'll deal with this later, surely...
-export default function ScrollableCalendar(projectData: string[][]) {
-  data = projectData
+export default function ScrollableCalendar(props): JSX.Element {
+
+  if (!props.projectData) return (<Text>Loading</Text>)
+
+  data = props.projectData
   let dates: Array<String> = ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"]
 
   var Cards:[any] = [React.Fragment];
@@ -57,7 +59,7 @@ export default function ScrollableCalendar(projectData: string[][]) {
         bg: 'secondary.400',
       }}    
         _dark={{ bg: "red.300"  }} _light={{ bg: "secondary.200" }} width = {[50, 100]} height={20} alignContent = 'center' alignItems = 'center'
-        onPress={() => selectData(i)}>
+        onPress={() => setData(i, props.setDate)}>
             <Heading _dark={{
               color: "coolgray.800"
               }} 
@@ -121,6 +123,11 @@ export default function ScrollableCalendar(projectData: string[][]) {
 
 function selectData(index: number): string[] {
   console.log(data[index - 1])
-  localStorage.setItem("day", String(index - 1))
+  return data[index - 1]
+}
+
+function setData(index: number, setDay: any): string[] {
+  console.log(data[index - 1])
+  setDay(index - 1)
   return data[index - 1]
 }

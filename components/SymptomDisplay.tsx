@@ -42,14 +42,12 @@ const config = {
 let data: string[][]
 
 //i'll deal with this later, surely...
-export default function SymptomDisplay(projectData: string[][], selectedDay: number) {
-  data = projectData
-  let day = localStorage.getItem("day")
-  console.log(localStorage.getItem("day"))
-   
+export default function SymptomDisplay(props): JSX.Element {
+  var day: number = props.selectedDay
+  var data: string[][] = props.projectData
     return (
-    <ScrollView flex={1} w="90%" h="80%" px = {10} justify-content='space-between' mx = {4}>
-        {day}
-    </ScrollView>
+      <ScrollView flex={1} w="90%" h="80%" px = {10} justify-content='space-between' mx = {4}>
+      <Text>Selected Day: {day}</Text>
+  </ScrollView>
     )
-}
+  }

@@ -42,14 +42,52 @@ const config = {
 };
 
 
+// in a fuller implementation, this would be sourced from a backend...
+var data: string[][] = [
+  ["cough, sneeze"],
+  ["cough"],
+  ['headache'],
+  [],
+  [],
+  [],
+  ["blurry vision"],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  ["cough, sneeze"],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  []
+]
 
 
 
 //i'll deal with this later, surely...
 export default function PageOne( {navigation}: any, colorManager: StorageManager) {
-  const [selected, setSelected] = React.useState(1);
-  localStorage.setItem("day", "0")
-  const selectedDate = React.createContext<number>(0); 
+  const [selected, setSelected] = React.useState();
+  const [day, setDay] = React.useState(1);
+
+  let dates: Array<String> = ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"]
+
     return (
 <NativeBaseProvider>
   <VStack
@@ -74,10 +112,10 @@ export default function PageOne( {navigation}: any, colorManager: StorageManager
     _light={{ bg: "blueGray.50" }} alignItems = 'center' marginRight = {4} justifyContent='left' p = {5} m = {2} space-between = {4}>
 
   <Text alignSelf = 'center' fontSize="4xl">Symptoms</Text>
+  
+    <ScrollableCalendar projectData = {data} setDate = {setDay} />
 
-    <selectedDate.Provider value = {0}>
-      <ScrollableCalendar {...data}/>
-    </selectedDate.Provider>
+
   </VStack>
 
 <Center
@@ -89,7 +127,7 @@ export default function PageOne( {navigation}: any, colorManager: StorageManager
 >
  
 
-<SymptomDisplay projectData={data}/>
+<SymptomDisplay projectData = {data} selectedDay = {day}/>
   
 </Center>
 
@@ -156,40 +194,3 @@ function ToggleDarkMode() {
     </HStack>
   );
 }
-
-// in a fuller implementation, this would be sourced from a backend...
-let data = [
-  ["cough, sneeze"],
-  ["cough"],
-  ['headache'],
-  [],
-  [],
-  [],
-  ["blurry vision"],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  ["cough, sneeze"],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  []
-]
