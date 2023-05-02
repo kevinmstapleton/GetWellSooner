@@ -32,7 +32,8 @@ import NativeBaseIcon from "./NativeBaseIcon";
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import ScrollableCalendar from "./ScrollabeCalendar";
+import ScrollableCalendar from "./ScrollableCalendar";
+import SymptomDisplay from "./SymptomDisplay";
 
 // Define the config
 const config = {
@@ -42,9 +43,13 @@ const config = {
 
 
 
+
+
 //i'll deal with this later, surely...
 export default function PageOne( {navigation}: any, colorManager: StorageManager) {
   const [selected, setSelected] = React.useState(1);
+  localStorage.setItem("day", "0")
+  const selectedDate = React.createContext<number>(0); 
     return (
 <NativeBaseProvider>
   <VStack
@@ -70,8 +75,9 @@ export default function PageOne( {navigation}: any, colorManager: StorageManager
 
   <Text alignSelf = 'center' fontSize="4xl">Symptoms</Text>
 
-    <ScrollableCalendar/>
-
+    <selectedDate.Provider value = {0}>
+      <ScrollableCalendar {...data}/>
+    </selectedDate.Provider>
   </VStack>
 
 <Center
@@ -83,30 +89,7 @@ export default function PageOne( {navigation}: any, colorManager: StorageManager
 >
  
 
-  <VStack space="30%" alignItems="center">
-
-  <Card     
-    _dark={{ bg: "red.100"  }} _light={{ bg: "blueGray.200" }} width = "90%" height={20} alignContent = 'center' alignItems = 'center'>
-      <Text  _dark={{
-      color: "coolgray.800"
-    }} fontSize = {[10, 20]}>
-        Schedule an appointment with your doctor!
-      </Text>
-  </Card>
-
-
-  <Box alignItems="center">
-    <Stack space={16} w="100%" alignItems="center">
-      <Input w={{
-      base: "100%",
-    }} InputLeftElement={<SearchIcon/>} size={5} ml="2" color="muted.400" placeholder="Search all things medical" />
-    </Stack>
-    </Box>
-
-
-
-  </VStack>
-  
+<SymptomDisplay projectData={data}/>
   
 </Center>
 
@@ -173,3 +156,40 @@ function ToggleDarkMode() {
     </HStack>
   );
 }
+
+// in a fuller implementation, this would be sourced from a backend...
+let data = [
+  ["cough, sneeze"],
+  ["cough"],
+  ['headache'],
+  [],
+  [],
+  [],
+  ["blurry vision"],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  ["cough, sneeze"],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  []
+]
