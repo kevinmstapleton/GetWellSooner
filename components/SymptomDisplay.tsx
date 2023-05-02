@@ -20,6 +20,7 @@ import {
   Container,
   Heading,
   Flex,
+  Circle,
   View,
   ScrollView,
   useTheme
@@ -39,15 +40,35 @@ const config = {
   initialColorMode: "dark",
 };
 
+
 let data: string[][]
 
 //i'll deal with this later, surely...
 export default function SymptomDisplay(props): JSX.Element {
   var day: number = props.selectedDay
   var data: string[][] = props.projectData
+
+  var symptoms: JSX.Element[] = []
+
+  data[day].forEach(symptom => {
+    console.log(symptom)
+    symptoms.push(
+
+      <Pressable alignItems = 'center' rounded = {80} _dark={{ bg: "red.300"  }} _light={{ bg: "secondary.200" }} size="80px" bg="secondary.400">
+      <Icon as={<MaterialIcons name="info" />} color="white" size={5} />
+      {symptom}
+      </Pressable>
+    
+    )
+  });
+
     return (
-      <ScrollView flex={1} w="90%" h="80%" px = {10} justify-content='space-between' mx = {4}>
-      <Text>Selected Day: {day}</Text>
+      <View>
+        <Text>Selected Day: {day}</Text>
+      <ScrollView flex={1} w="90%" h="80%" px = {10} mt="3" mb="8" justify-content='space-between' horizontal={true} mx = {4}>
+
+      {symptoms}
   </ScrollView>
+  </View>
     )
   }
