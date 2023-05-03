@@ -52,18 +52,28 @@ export default function SymptomDisplay(props): JSX.Element {
   var data: string[][] = props.projectData
 
   var symptoms: JSX.Element[] = []
-  const [showModal, setShowModal] = useState(false);
+  const [showModalCough, setShowModalCough] = useState(false);
+  const [showModalSneeze, setShowModalSneeze] = useState(false);
+  const [showModalHeadache, setShowModalHeadache] = useState(false);
+  let states = {showModalCough, showModalSneeze, showModalHeadache}
 
+  // I am aware this is hella spaghetti code, but for the demo it works
+  const symptomsList = {
+    Cough: 0,
+    Sneeze: 1,
+    Headache: 2
+  }
   data[day].forEach(symptom => {
     console.log(symptom)
     symptoms.push(
       <Center mt="3" mb="8" px = {1}>
       <Text>{Math.floor(Math.random() * 12) + 1}:00</Text>
-      <Pressable onPress = {() => setShowModal(true)} alignItems = 'center' rounded = {80} _dark={{ bg: "red.300"  }} _light={{ bg: "secondary.200" }} size="100px" bg="secondary.400">
+      <Pressable _hover={{ bg: 'secondary.400' }} onPress = {() => console.log(symptom)} alignItems = 'center' rounded = {80} _dark={{ bg: "red.300"  }} _light={{ bg: "secondary.200" }} size="100px" bg="secondary.400">
       <Icon as={<MaterialIcons name="info" />} color="white" size={5} />
       <Text>{symptom}</Text>
       </Pressable>
-      <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+      <Modal isOpen={states[symptomsList.symptom]} 
+      onClose={() => console.log('closed')}>
         <Modal.Content maxWidth="400px">
           <Modal.CloseButton />
           <Modal.Header >{symptom}</Modal.Header>
@@ -73,12 +83,12 @@ export default function SymptomDisplay(props): JSX.Element {
           <Modal.Footer>
             <Button.Group space={2}>
               <Button variant="ghost" colorScheme="blueGray" onPress={() => {
-              setShowModal(false);
+              ;
             }}>
                 Cancel
               </Button>
               <Button onPress={() => {
-              setShowModal(false);
+              ;
             }}>
                 Save
               </Button>
@@ -89,6 +99,7 @@ export default function SymptomDisplay(props): JSX.Element {
       </Center>
     )
   });
+
 
     return (
   <View>
