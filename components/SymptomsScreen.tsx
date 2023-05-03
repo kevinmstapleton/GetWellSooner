@@ -22,6 +22,7 @@ import {
   Flex,
   View,
   ScrollView,
+  Divider,
   useTheme
 } from "native-base";
 
@@ -118,6 +119,11 @@ export default function PageOne( {navigation}: any, colorManager: StorageManager
 
   </VStack>
 
+
+<Text alignSelf = 'center' fontSize="6xl">Selected Day: {day + 1}</Text>
+
+
+
 <Center
   _dark={{ bg: "blueGray.900" }}
   _light={{ bg: "blueGray.50" }}
@@ -125,10 +131,15 @@ export default function PageOne( {navigation}: any, colorManager: StorageManager
   flex={1}
   height = {1}
 >
- 
-
 <SymptomDisplay projectData = {data} selectedDay = {day}/>
-  
+
+<Text ellipsizeMode="clip" numberOfLines={1}>
+      - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      - - - - - - - - - - - - - - - - -
+  </Text>
+
 </Center>
 
 </VStack>
