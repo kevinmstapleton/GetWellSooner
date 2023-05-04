@@ -64,12 +64,14 @@ export default function SymptomDisplay(props): JSX.Element {
     Headache: 2
   }
 
+  let times = ["3:00", "5:30", "2:00", "11:00", "14:00"]
+
 
   data[day].forEach(symptom => {
     console.log(symptom)
     symptoms.push(
       <Center mt="3" mb="8" px = {1}>
-      <Text>{Math.floor(Math.random() * 12) + 1}:00</Text>
+      <Text>{times[(day) % 5]}</Text>
       <Pressable _hover={{ bg: 'secondary.400' }} onPress = {() => {
         if (symptom == 'Cough') {setShowModalCough(true)}
         else if (symptom == 'Sneeze') {setShowModalSneeze(true)}
