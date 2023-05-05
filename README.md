@@ -15,3 +15,5 @@ In order to run the project,
 
 If this does not work, you may need to manually install Expo-CLI in order to display
 -- npm install -g expo-cli
+
+Please note that this is a WIP application, and the user interface is not to reflect final design. The purpose of this project is to demo a potential idea and get feedback.
